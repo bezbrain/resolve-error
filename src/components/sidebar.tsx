@@ -1,7 +1,16 @@
 import React from "react";
 import { SidebarIcon } from "./sidebar-icon";
+import { useUser } from "../providers/user";
+import { useNavigate } from "react-router-dom";
+import { signOut, getAuth } from "firebase/auth";
+import { toast } from "react-toastify";
 
 export function Sidebar() {
+  const { setCurrentUser } = useUser();
+  const navigate = useNavigate();
+
+  const auth = getAuth();
+
   return (
     <div className="bg-white max-w-xs border border-r p-2">
       <div className="mx-4 ml-12">
@@ -61,7 +70,17 @@ export function Sidebar() {
             />
           </div>
         </div>
-        <h6 className="log-out-text">Log out</h6>
+        <h6
+          className="log-out-text cursor-pointer"
+          onClick={async () => {
+            await signOut(auth);
+            setCurrentUser(null);
+            navigate("/");
+            toast.success("Logout successful");
+          }}
+        >
+          Log out
+        </h6>
       </div>
     </div>
   );

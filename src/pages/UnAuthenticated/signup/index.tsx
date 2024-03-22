@@ -67,7 +67,7 @@ export default function SignUp() {
 
           setIsLoading(false);
           toast.success("Account created successfully");
-          navigate("/sign-in");
+          navigate("/login");
         }
       } catch (error) {
         setIsLoading(false);
@@ -133,7 +133,7 @@ export default function SignUp() {
           </p>
         </div>
       </div>
-      <div className=" ml-20 px-4 my-4 px-4 py-2 space-y-4">
+      <div className=" ml-20 my-4 px-4 py-2 space-y-4">
         <div className="space-y-2">
           <div className="flex justify-between">
             <Link to="/signup">

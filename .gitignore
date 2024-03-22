@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 
-/*557.json
+src/firebase/firebase-admin/*557.json
 
 # testing
 /coverage
